@@ -1,11 +1,11 @@
-const { createStore, applyMiddleware } = require("redux");
+const { createStore, compose, applyMiddleware } = require("redux");
 const reducer = require("./reducers");
-const { logIn, logOut } = require("./actions/user");
 const { addPost } = require("./actions/post");
+const { logIn, logOut } = require("./actions/user");
 
 const initialState = {
 	user: {
-		isLoggedIn: true,
+		isLoggingIn: false,
 		data: null,
 	},
 	posts: [],

@@ -1,30 +1,28 @@
 const React = require("react");
 const { useCallback } = React;
 const { useDispatch, useSelector } = require("react-redux");
-const { logIn } = require("./actions/user");
+const { logIn, logOut } = require("./actions/user");
 
 const App = () => {
-	const user = useSelector((state) => {
-		state.user.data;
-	});
+	const user = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 
 	const onClick = useCallback(() => {
 		dispatch(
 			logIn({
-				isLoggedIn: true,
-				data: {
-					id: "hayoungkkim",
-					password: "비밀번호",
-				},
+				id: "hayoungkkim",
+				password: "비밀번호",
 			})
 		);
+	}, []);
+	const onLogout = useCallback(() => {
+		dispatch(logOut());
 	}, []);
 
 	return (
 		<div>
-			{user ? <div>{user.id}</div> : "로그인 해주세요."}
-			<button onClick={onClick}>로그인</button>
+			{user.isLoggingIn ? <div>로그인 중</div> : user.data ? <div>{user.data.nickname}</div> : "로그인 해주세요."}
+			{!user.data ? <button onClick={onClick}>로그인</button> : <button onClick={onLogout}>로그아웃</button>}
 		</div>
 	);
 };
