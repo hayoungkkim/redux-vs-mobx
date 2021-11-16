@@ -2,9 +2,9 @@ const path = require("path");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 module.exports = {
-	name: "minesearch-dev",
+	name: "react-redux",
 	mode: "development",
-	devtool: "inline-source-map",
+	devtool: "eval",
 	resolve: {
 		extensions: [".js", ".jsx"],
 	},
