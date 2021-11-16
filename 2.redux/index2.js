@@ -9,11 +9,6 @@ const initialState = {
 		data: null,
 	},
 	posts: [],
-	comments: [],
-	favorites: [],
-	history: [],
-	likes: [],
-	followers: [],
 };
 
 const store = createStore(reducer, initialState);
