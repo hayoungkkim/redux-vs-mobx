@@ -5,7 +5,7 @@ const { addPost } = require("./actions/post");
 
 const initialState = {
 	user: {
-		isLoggedIn: true,
+		isLoggingIn: true,
 		data: null,
 	},
 	posts: [],
