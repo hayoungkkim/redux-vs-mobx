@@ -1,8 +1,8 @@
 const { combineReducers } = require("redux");
-const userSlice = require("./user");
-const postSlice = require("./post");
+const userSlice = require("./userSlice");
+const postSlice = require("./postSlice");
 
 module.exports = combineReducers({
 	user: userSlice.reducer,
-	posts: postSlice.reducer,
+	post: postSlice.reducer,
 });

@@ -8,24 +8,14 @@ const initialState = {
 const postSlice = createSlice({
 	name: "post",
 	initialState,
-	reducers: {
-		clearPost(state, action) {
-			state.date = [];
-		},
-	},
+	reducers: {},
 	extraReducers: (builder) =>
 		builder
 			.addCase(addPost.pending, (state, action) => {})
 			.addCase(addPost.fulfilled, (state, action) => {
 				state.list.push(action.payload);
 			})
-			.addCase(addPost.rejected, (state, action) => {})
-			.addMatcher((action) => {
-				state.isLoading = true;
-			})
-			.addDefaultCase((state, action) => {
-				// default
-			}),
+			.addCase(addPost.rejected, (state, action) => {}),
 });
 
 module.exports = postSlice;
