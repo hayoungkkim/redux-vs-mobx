@@ -1,11 +1,11 @@
-const React = require("react");
-const ReactDom = require("react-dom");
-const { Provider } = require("react-redux");
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-const store = require("./store");
-const App = require("./App");
+import store from "./store";
+import App from "./App";
 
-ReactDom.render(
+ReactDOM.render(
 	<Provider store={store}>
 		<App />
 	</Provider>,

@@ -1,10 +1,10 @@
-const React = require("react");
-const { useCallback } = React;
-const { useDispatch, useSelector } = require("react-redux");
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 const { logIn, logOut } = require("./actions/user");
 
 const App = () => {
 	const user = useSelector((state) => state.user);
+	const posts = useSelector((state) => state.posts);
 	const dispatch = useDispatch();
 
 	const onClick = useCallback(() => {
@@ -27,4 +27,4 @@ const App = () => {
 	);
 };
 
-module.exports = App;
+export default App;

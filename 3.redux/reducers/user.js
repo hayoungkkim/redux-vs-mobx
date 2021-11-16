@@ -1,5 +1,5 @@
 const initialState = {
-	isLoggedIn: false,
+	isLoggingIn: false,
 	data: null,
 };
 
@@ -22,11 +22,6 @@ const userReducer = (prevState = initialState, action) => {
 				...prevState,
 				data: null,
 				isLoggingIn: false,
-			};
-		case "LOG_IN":
-			return {
-				...prevState,
-				data: action.data,
 			};
 		case "LOG_OUT":
 			return {
