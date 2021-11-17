@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useObserver, useLocalStore } from "mobx-react";
+import { observer, useLocalObservable } from "mobx-react";
 
 // import useStore from "./useStore";
 import { userStore, postStore } from "./store";
@@ -7,7 +7,7 @@ import { userStore, postStore } from "./store";
 const App = () => {
 	// const { userStore, postStore } = useStore();
 
-	const state = useLocalStore(() => ({
+	const state = useLocalObservable(() => ({
 		name: "",
 		password: "",
 		onChangeName(e) {
@@ -29,15 +29,15 @@ const App = () => {
 		userStore.logOut();
 	}, []);
 
-	return useObserver(() => (
+	return (
 		<div>
 			{userStore.isLoggingIn ? <div>로그인 중</div> : userStore.data ? <div>{userStore.data.nickname}</div> : "로그인 해주세요."}
 			{!userStore.data ? <button onClick={onClick}>로그인</button> : <button onClick={onLogout}>로그아웃</button>}
-			<div>{postStore.data.length}</div>
+			<div>{postStore.postLength}</div>
 			<input value={state.name} onChange={state.onChangeName} />
 			<input value={state.password} type="password" onChange={state.onChangePassword} />
 		</div>
-	));
+	);
 };
 
-export default App;
+export default observer(App);
